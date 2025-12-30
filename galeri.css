@@ -1,0 +1,73 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.galeri {
+    display: flex;
+    flex-wrap: wrap; /* Arabalar sığmazsa alt satıra geçer */
+    justify-content: center;
+    gap: 25px;
+}
+
+.araba-kart {
+    background: white;
+    width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.araba-kart:hover {
+    transform: translateY(-10px); /* Üzerine gelince yukarı kalkar */
+}
+
+.araba-kart img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.bilgi {
+    padding: 20px;
+}
+
+.bilgi h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.bilgi ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.bilgi li {
+    margin-bottom: 8px;
+}
+
+.incele-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4757;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.incele-btn:hover {
+    background-color: #e84118;
+} 
