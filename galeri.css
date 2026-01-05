@@ -1,106 +1,138 @@
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-family: 'Inter', -apple-system, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
 header {
     text-align: center;
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 header h1 {
-    color: #f39c12;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    color: #38bdf8;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
 }
 
-/* Galeri Izgarası - Ekran boyutuna göre otomatik ayarlanır */
+header p {
+    color: #94a3b8;
+}
+
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    max-width: 1300px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Araba Kartları */
 .card {
-    background: #1e1e1e;
-    border-radius: 12px;
+    background: #1e293b;
+    border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid #333;
+    transition: all 0.4s ease;
+    border: 1px solid #334155;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    border-color: #f39c12;
-    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
 }
 
 .info {
-    padding: 15px;
+    padding: 20px;
     text-align: center;
 }
 
 .info h3 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.3rem;
+    color: #fff;
 }
 
-/* Modal Ayarları */
+.info p {
+    color: #38bdf8;
+    font-size: 0.85rem;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* Modal */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 999;
 }
 
 .modal-content {
     background: #fff;
-    color: #333;
-    padding: 30px;
-    border-radius: 15px;
+    color: #1e293b;
+    padding: 35px;
+    border-radius: 25px;
     width: 90%;
-    max-width: 400px;
+    max-width: 650px;
     position: relative;
-    animation: slideDown 0.4s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes slideDown {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.modal-content h2 {
+    margin-top: 0;
+    color: #0284c7;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.spec-item {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px dashed #cbd5e1;
+}
+
+.spec-item strong {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.spec-item span {
+    font-weight: 600;
+    color: #334155;
 }
 
 .close-btn {
     position: absolute;
     top: 15px; right: 20px;
-    font-size: 28px;
+    font-size: 35px;
     cursor: pointer;
-    color: #888;
+    color: #94a3b8;
 }
 
-.modal-content h2 {
-    margin-top: 0;
-    color: #e67e22;
-}
-
-.modal-content p {
-    font-size: 1.1em;
-    margin: 15px 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+/* Mobilde tek sütun */
+@media (max-width: 500px) {
+    .specs-grid { grid-template-columns: 1fr; }
 }
