@@ -1,59 +1,100 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr"> 
-     <link rel="stylesheet" href="araba.css">
+    <link rel="stylesheet" href="galeri.css">
 <head>
     <meta charset="UTF-8">
-    <title>Araba Galerisi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geniş Araba Galerisi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Oto Galeri</h1>
-        <p>Hayalindeki arabayı seç ve özelliklerini gör</p>
+        <h1>Premium Araç Kataloğu</h1>
+        <p>Teknik detaylar için aracın üzerine tıklayın</p>
     </header>
 
-    <div class="galeri"> 
-        <img src="renaultclio.jpg" alt="Renault Clio">
-        <div class="araba-kart">
-            <img src="https://via.placeholder.com/300x180?text=Renault+Clio" alt="Renault Clio">
-            <div class="bilgi">
-                <h3>Renault Clio</h3> 
-                <ul>
-                    <li><strong>Motor:</strong> 1.0 TCe</li>
-                    <li><strong>Yıl:</strong> 2025</li>
-                    <li><strong>Fiyat:</strong> 1.500.000 TL</li>
-                </ul>
-                <button class="incele-btn">İncele</button>
-            </div>
+    <div class="gallery">
+        <div class="card" onclick="openModal('Audi RS7', '600 HP', 'Benzin', 'Sedan')">
+            <img src="RS7.jpg" alt="Audi RS7">
+            <div class="info"><h3>Audi RS7</h3></div>
         </div>
 
-        <div class="araba-kart">
-            <img src="https://via.placeholder.com/300x180?text=Fiat+Egea" alt="Fiat Egea">
-            <div class="bilgi">
-                <h3>Fiat Egea</h3>
-                <ul>
-                    <li><strong>Motor:</strong> 1.3 MultiJet</li>
-                    <li><strong>Yıl:</strong> 2024</li>
-                    <li><strong>Fiyat:</strong> 1.100.000 TL</li>
-                </ul>
-                <button class="incele-btn">İncele</button>
-            </div>
+        <div class="card" onclick="openModal('Mercedes AMG GT', '585 HP', 'Benzin', 'Coupe')">
+            <img src="AMG GT.JPG" alt="Mercedes AMG">
+            <div class="info"><h3>Mercedes AMG GT</h3></div>
         </div>
 
-        <div class="araba-kart">
-            <img src="https://via.placeholder.com/300x180?text=Toyota+Corolla" alt="Toyota Corolla">
-            <div class="bilgi">
-                <h3>Toyota Corolla</h3>
-                <ul>
-                    <li><strong>Motor:</strong> 1.8 Hybrid</li>
-                    <li><strong>Yıl:</strong> 2024</li>
-                    <li><strong>Fiyat:</strong> 1.500.000 TL</li>
-                </ul>
-                <button class="incele-btn">İncele</button>
-            </div>
+        <div class="card" onclick="openModal('BMW X5', '298 HP', 'Dizel/Hibrit', 'SUV')">
+            <img src="x5.jpg" alt="BMW X5">
+            <div class="info"><h3>BMW X5</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('BMW 5 Serisi', '197 HP', 'Dizel/Benzin', 'Sedan')">
+            <img src="bmw5.jpg" alt="BMW 5">
+            <div class="info"><h3>BMW 5 Serisi</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Mercedes E Serisi', '204 HP', 'Benzin/Hibrit', 'Sedan')">
+            <img src="e.jpg" alt="Mercedes E">
+            <div class="info"><h3>Mercedes E Serisi</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Audi Q7', '340 HP', 'Dizel', 'Büyük SUV')">
+            <img src="q7.jpg" alt="Audi Q7">
+            <div class="info"><h3>Audi Q7</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Toyota Hilux', '204 HP', 'Dizel', 'Pick-up')">
+            <img src="hilux.jpg" alt="Toyota Hilux">
+            <div class="info"><h3>Toyota Hilux</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Ford Ranger', '210 HP', 'Dizel', 'Pick-up')">
+            <img src="ranger.jpg" alt="Ford Ranger">
+            <div class="info"><h3>Ford Ranger</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Peugeot 5008', '130 HP', 'Dizel/Benzin', '7 Kişilik SUV')">
+            <img src="p5008.jpg" alt="Peugeot 5008">
+            <div class="info"><h3>Peugeot 5008</h3></div>
+        </div>
+
+        <div class="card" onclick="openModal('Peugeot Rifter', '130 HP', 'Dizel', 'Kombi/MPV')">
+            <img src="rifter.jpg" alt="Peugeot Rifter">
+            <div class="info"><h3>Peugeot Rifter</h3></div>
         </div>
     </div>
 
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Araç Bilgisi</h2>
+            <hr>
+            <p><strong>Motor Gücü:</strong> <span id="val1"></span></p>
+            <p><strong>Yakıt Tipi:</strong> <span id="val2"></span></p>
+            <p><strong>Kasa Tipi:</strong> <span id="val3"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(name, power, fuel, type) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('val1').innerText = power;
+            document.getElementById('val2').innerText = fuel;
+            document.getElementById('val3').innerText = type;
+            document.getElementById('carModal').style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById('carModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('carModal')) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>

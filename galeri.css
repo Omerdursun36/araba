@@ -1,73 +1,106 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 20px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 40px;
+    padding: 30px 0;
 }
 
-.galeri {
-    display: flex;
-    flex-wrap: wrap; /* Arabalar sığmazsa alt satıra geçer */
-    justify-content: center;
+header h1 {
+    color: #f39c12;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Galeri Izgarası - Ekran boyutuna göre otomatik ayarlanır */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-.araba-kart {
-    background: white;
-    width: 300px;
+/* Araba Kartları */
+.card {
+    background: #1e1e1e;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
 }
 
-.araba-kart:hover {
-    transform: translateY(-10px); /* Üzerine gelince yukarı kalkar */
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #f39c12;
+    box-shadow: 0 10px 20px rgba(243, 156, 18, 0.2);
 }
 
-.araba-kart img {
+.card img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
 }
 
-.bilgi {
-    padding: 20px;
+.info {
+    padding: 15px;
+    text-align: center;
 }
 
-.bilgi h3 {
-    margin: 0 0 10px 0;
+.info h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Modal Ayarları */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
     color: #333;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    animation: slideDown 0.4s ease;
 }
 
-.bilgi ul {
-    list-style: none;
-    padding: 0;
-    font-size: 14px;
-    color: #666;
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-.bilgi li {
-    margin-bottom: 8px;
-}
-
-.incele-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff4757;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 6px;
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 28px;
     cursor: pointer;
-    margin-top: 10px;
+    color: #888;
 }
 
-.incele-btn:hover {
-    background-color: #e84118;
-} 
+.modal-content h2 {
+    margin-top: 0;
+    color: #e67e22;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    margin: 15px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
